@@ -11,7 +11,7 @@ test("CRUD Operation : GET Method", async ({ request }) => {
 
 })
 
-test("CRUD Operation : POST Methos", async ({ request }) => {
+test("CRUD Operation : POST Method", async ({ request }) => {
     const response = await request.post('https://dummyjson.com/auth/login', {
         data: {
             "username": "charlottem",
@@ -20,5 +20,15 @@ test("CRUD Operation : POST Methos", async ({ request }) => {
     });
     const responseBody = await response.json()
     console.log(responseBody)
+
+})
+
+test("CRUD Operation : DELETE Method", async ({ request }) => {
+
+    const response = await request.delete('https://dummyjson.com/cart/1');
+    const responseBody = await response.json();
+
+    const date = new Date().toISOString().split("T")[0];
+    expect(responseBody.deletedOn).toContain(date);
 
 })
