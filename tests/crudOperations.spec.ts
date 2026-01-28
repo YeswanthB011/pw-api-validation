@@ -32,3 +32,18 @@ test("CRUD Operation : DELETE Method", async ({ request }) => {
     expect(responseBody.deletedOn).toContain(date);
 
 })
+
+test("CRUD Operation : UPDATE Method", async ({ request }) => {
+    const response = await request.patch('https://dummyjson.com/carts/1', {
+        data:{"products": [
+      {
+        "id": 1,
+        "quantity": 1
+      }
+]}
+    })
+
+    const responseBody=await response.json()
+    //console.log(responseBody)
+    expect(responseBody.totalProducts && responseBody.totalQuantity).toBe(1)
+})
