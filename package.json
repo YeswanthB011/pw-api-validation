@@ -1,0 +1,23 @@
+{
+  "name": "pw-api-validation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YeswanthB011/pw-api-validation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/YeswanthB011/pw-api-validation/issues"
+  },
+  "homepage": "https://github.com/YeswanthB011/pw-api-validation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^25.0.10"
+  }
+}
