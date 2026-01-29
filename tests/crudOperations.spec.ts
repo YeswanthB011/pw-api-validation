@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { request } from 'node:http';
 
 test("CRUD Operation : GET Method", async ({ request }) => {
     const response = await request.get('https://dummyjson.com/products/1');
