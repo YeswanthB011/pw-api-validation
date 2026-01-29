@@ -27,5 +27,7 @@ setup('authentication', async ({ request }) => {
     user.origins[0].localStorage[0].value = accessToken
     fs.writeFileSync(authFile, JSON.stringify(user))
 
+    //if access token expires call refresh token dont try to relogin in automation we found usign 401 response
+
     process.env['ACCESS_TOKEN'] = accessToken
 })

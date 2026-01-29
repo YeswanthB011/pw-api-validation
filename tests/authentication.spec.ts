@@ -1,10 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.beforeEach(async({page})=>{
-
-//     await page.goto()
-// })
-
 test('create new article', async ({ request }) => {
     const response = await request.post('https://conduit-api.bondaracademy.com/api/articles/', {
         data:
@@ -19,14 +14,12 @@ test('create new article', async ({ request }) => {
     })
 
     const responsebody = await response.json()
-    expect(response.status()).toEqual(200)
-
-
-
+    expect.soft(response.status()).toEqual(200)
+    
 
 })
 test('Mock the request of tag and article', async ({ page }) => {
-    await page.goto('https://conduit.bondaracademy.com/')
+    
     await page.route('*/**/api/tags*', async route => {
         const tags = {
             "tags": [
@@ -35,7 +28,7 @@ test('Mock the request of tag and article', async ({ page }) => {
             ]
         }
         await route.fulfill({ body: JSON.stringify(tags) })
-        body: JSON.stringify(tags)
+        await page.goto('https://conduit.bondaracademy.com/')
     })
     await expect(page.locator('[class="logo-font"]').first()).toHaveText('conduit')
 
